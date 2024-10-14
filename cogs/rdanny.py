@@ -152,9 +152,11 @@ class RDanny(commands.Cog):
     async def do_rtfm(self, ctx, key, obj):
         page_types = {
             "latest": "https://discordpy.readthedocs.io/en/latest",
-            "latest-jp": "https://discordpy.readthedocs.io/ja/latest",
+            "dpy": "https://discordpy.readthedocs.io/en/latest",
+            "discord.py": "https://discordpy.readthedocs.io/en/latest",
             "python": "https://docs.python.org/3",
-            "python-jp": "https://docs.python.org/ja/3",
+            "nextcord": "https://docs.nextcord.dev/en/stable",
+            "disnake": "https://docs.disnake.dev/en/stable",
         }
 
         if obj is None:
