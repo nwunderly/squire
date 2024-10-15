@@ -152,8 +152,6 @@ class RDanny(commands.Cog):
     async def do_rtfm(self, ctx, key, obj):
         page_types = {
             "latest": "https://discordpy.readthedocs.io/en/latest",
-            "dpy": "https://discordpy.readthedocs.io/en/latest",
-            "discord.py": "https://discordpy.readthedocs.io/en/latest",
             "python": "https://docs.python.org/3",
             "nextcord": "https://docs.nextcord.dev/en/stable",
             "disnake": "https://docs.disnake.dev/en/stable",
@@ -169,7 +167,7 @@ class RDanny(commands.Cog):
 
         obj = re.sub(r"^(?:discord\.(?:ext\.)?)?(?:commands\.)?(.+)", r"\1", obj)
 
-        if key.startswith("latest"):
+        if key in ("latest", "disnake", "nextcord"):
             # point the abc.Messageable types properly:
             q = obj.lower()
             for name in dir(disnake.abc.Messageable):
@@ -212,10 +210,10 @@ class RDanny(commands.Cog):
         key = self.transform_rtfm_language_key(ctx, "latest")
         await self.do_rtfm(ctx, key, obj)
 
-    @rtfm.command(name="jp")
-    async def rtfm_jp(self, ctx, *, obj: str = None):
-        """Gives you a documentation link for a discord.py entity (Japanese)."""
-        await self.do_rtfm(ctx, "latest-jp", obj)
+    # @rtfm.command(name="jp")
+    # async def rtfm_jp(self, ctx, *, obj: str = None):
+    #     """Gives you a documentation link for a discord.py entity (Japanese)."""
+    #     await self.do_rtfm(ctx, "latest-jp", obj)
 
     @rtfm.command(name="python", aliases=["py"])
     async def rtfm_python(self, ctx, *, obj: str = None):
@@ -223,11 +221,28 @@ class RDanny(commands.Cog):
         key = self.transform_rtfm_language_key(ctx, "python")
         await self.do_rtfm(ctx, key, obj)
 
-    @rtfm.command(name="py-jp", aliases=["py-ja"])
-    async def rtfm_python_jp(self, ctx, *, obj: str = None):
-        """Gives you a documentation link for a Python entity (Japanese)."""
-        await self.do_rtfm(ctx, "python-jp", obj)
+    # @rtfm.command(name="py-jp", aliases=["py-ja"])
+    # async def rtfm_python_jp(self, ctx, *, obj: str = None):
+    #     """Gives you a documentation link for a Python entity (Japanese)."""
+    #     await self.do_rtfm(ctx, "python-jp", obj)
 
+    @rtfm.command(name="discord.py", aliases=["dpy"])
+    async def rtfm_discordpy(self, ctx, *, obj: str = None):
+        """Gives you a documentation link for a discord.py entity."""
+        key = self.transform_rtfm_language_key(ctx, "latest")
+        await self.do_rtfm(ctx, key, obj)
+
+    @rtfm.command(name="disnake")
+    async def rtfm_disnake(self, ctx, *, obj: str = None):
+        """Gives you a documentation link for a Python entity."""
+        key = self.transform_rtfm_language_key(ctx, "disnake")
+        await self.do_rtfm(ctx, key, obj)
+
+    @rtfm.command(name="nextcord")
+    async def rtfm_nextcord(self, ctx, *, obj: str = None):
+        """Gives you a documentation link for a Python entity."""
+        key = self.transform_rtfm_language_key(ctx, "nextcord")
+        await self.do_rtfm(ctx, key, obj)
 
 def setup(bot):
     bot.add_cog(RDanny(bot))
