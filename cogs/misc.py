@@ -1,3 +1,4 @@
+import asyncio
 import random
 import socket
 
@@ -41,6 +42,7 @@ class Misc(commands.Cog):
             await ctx.send(
                 f"Buzz Buzz, on {whereami}! <:jellyfish:479723952890052608> v{settings.version}"
             )
+        await asyncio.sleep(5)
         await ctx.guild.me.edit(nick=None)
 
 
