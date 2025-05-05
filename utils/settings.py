@@ -1,14 +1,15 @@
 import disnake
 
-version = "2.3.0"
+version = "2.4.0"
 prefix = "=="
 
 COGS = [
     "jishaku",
     "cogs.admin",
     "cogs.misc",
-    "cogs.raid",
+    # "cogs.raid",
     "cogs.rdanny",
+    "cogs.devtools"
     # "cogs.timeout",
     # 'cogs.logchamp',
 ]
