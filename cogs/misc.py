@@ -72,7 +72,7 @@ class Misc(commands.Cog):
                 prev = await fetch_previous_message(ctx.message)
                 text = prev.content
         translation, from_lang = await self.translate_api.translate(text, lang=lang)
-        await ctx.send(f"(from {from_lang}) {translation}")
+        await ctx.send(f"({from_lang}->{lang}) {translation}")
 
 
 def setup(bot):
