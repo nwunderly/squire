@@ -8,8 +8,8 @@ import disnake
 from disnake.ext import commands
 
 from auth import WOLFRAM_APP_ID
-from utils.utility import red_tick
 from utils.converters import FetchedUser
+from utils.utility import red_tick
 
 
 class DevTools(commands.Cog):

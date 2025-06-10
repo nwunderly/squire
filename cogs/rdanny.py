@@ -244,5 +244,6 @@ class RDanny(commands.Cog):
         key = self.transform_rtfm_language_key(ctx, "nextcord")
         await self.do_rtfm(ctx, key, obj)
 
+
 def setup(bot):
     bot.add_cog(RDanny(bot))

@@ -9,7 +9,7 @@ COGS = [
     "cogs.misc",
     # "cogs.raid",
     "cogs.rdanny",
-    "cogs.devtools"
+    "cogs.devtools",
     # "cogs.timeout",
     # 'cogs.logchamp',
 ]
@@ -21,7 +21,8 @@ ADMINS = {
     325454303387058176,  # axo
 }
 
-MODS = {"""
+MODS = {
+    """
     204414611578028034,  # nwunder#0003
     279722793891790848,  # Moistley#5939
     533087803261714433,  # Neptune's Helper#0039
@@ -33,7 +34,8 @@ MODS = {"""
     224323277370294275,  # Kiwi#6666
     299023554127593473,  # mzone#1771
     298497141490450432,  # AdventurousSwine#9894
-"""}
+"""
+}
 
 intents = disnake.Intents(
     # most stuff still enabled

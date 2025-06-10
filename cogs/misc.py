@@ -59,7 +59,8 @@ class Misc(commands.Cog):
         text: commands.clean_content = None,
     ):
         """Translates a message into a language of your choice.
-        Defaults to English. If no text to translate is specified, uses the current channel's previous message."""
+        Defaults to English. If no text to translate is specified, uses the current channel's previous message.
+        """
         if not lang:
             lang = "en"
         if not text:
