@@ -129,3 +129,4 @@ dmypy.json
 data/
 logs/
 auth.py
+cloud_auth.json

@@ -5,3 +5,5 @@ aiopg
 asyncpg
 psutil
 youtube-dl
+google-cloud-translate
+google-auth
