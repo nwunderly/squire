@@ -23,12 +23,14 @@ class Squire(commands.Bot):
         )
         self.version = settings.version
         self.started_at = started_at
-        self.session = aiohttp.ClientSession()
+        self.session = None
         self.add_check(lambda ctx: is_mod(ctx.author))
         self._exit_code = 0
 
     async def on_ready(self):
         logger.info(f"Logged in as {self.user}. Bot is ready.")
+        if not self.session:
+            self.session = aiohttp.ClientSession()
 
     async def on_message(self, message):
         # ignore bots

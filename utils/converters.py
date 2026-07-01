@@ -137,3 +137,15 @@ class Module(commands.Converter):
             return cog
         else:
             raise commands.BadArgument("A module with this name could not be found.")
+
+
+class Language(commands.Converter):
+    async def convert(self, ctx, argument):
+        argument = argument.lower()
+        client = ctx.cog.translate_api
+
+        result = await client.convert_lang(argument)
+        if result:
+            return result
+
+        raise commands.BadArgument("Could not convert to a supported language.")

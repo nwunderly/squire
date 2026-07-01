@@ -58,7 +58,16 @@ def setup_logger(name, debug, dt):
     return logger
 
 
-async def fetch_previous_message(message):
+async def fetch_previous_message(message, cache=None):
+    # try cache if provided
+    if cache:
+        use_next = False
+        for m in cache[::-1]:
+            if use_next and m.channel.id == message.channel.id:
+                return m
+            if m.id == message.id:
+                use_next = True
+    # fetch if necessary
     use_next = False
     async for m in message.channel.history(limit=10):
         if use_next:
